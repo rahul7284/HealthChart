@@ -35,7 +35,7 @@
 			</table>
 			<input type="submit">
 			<table>
-			<tr><th>RBC</th><th>WBC</th><th>Platelets</th><th>HB</th></tr>
+			<tr><th>RBC</th><th>WbC</th><th>Platelets</th><th>HB</th></tr>
 			<tr>
 			<td>${bloodCbc.rbc_description}</td>
 			
