@@ -26,7 +26,7 @@ public class BloodCBCController {
 	{
 		ModelAndView modelAndView = new ModelAndView();
 		BloodCBCDto cbcdto = new BloodCBCDto();
-		System.out.println("this is test to commit ");
+		System.out.println("this is test to commit to recommit ");
 		if(bloodcbc.getGender()!=null){
 			 Map<String,String> description_map = new HashMap<String,String>();
 				
