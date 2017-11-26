@@ -1,4 +1,4 @@
-package com.healthcart.dao;
+package com.healthcart.daoImpl;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

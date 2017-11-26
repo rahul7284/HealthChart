@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.healthcart.dao.BloodSugarDao;
+import com.healthcart.daoImpl.BloodSugarDao;
 import com.healthcart.dto.BloodSugarDto;
 
 

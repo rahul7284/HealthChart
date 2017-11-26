@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class BloodCBCDto {
 	private Integer id;
-
 	private Integer rbc_limit;
 	private Integer rbclower_limit;
 	private Integer wbc_limit;

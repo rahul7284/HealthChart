@@ -19,7 +19,7 @@ public class HomeController {
 	@RequestMapping(value ="/home.htm" )
 	public ModelAndView getHome(@ModelAttribute (value="bloodSugar") BloodSugarDto bloodsugar)
 	{
-		System.out.println("hit new");
+		System.out.println("hit new changed");
 		List<String> modelist = new ArrayList<String>();
 		modelist.add("fasting");
 		modelist.add("non-fasting");

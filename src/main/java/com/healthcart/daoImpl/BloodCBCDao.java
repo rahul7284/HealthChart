@@ -1,4 +1,4 @@
-package com.healthcart.dao;
+package com.healthcart.daoImpl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
