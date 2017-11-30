@@ -40,6 +40,7 @@ public class UserServiceImpl implements UserService{
 		sugarlist =user.getSugarList();
 		thyroidlist =user.getThyroidList();
 		hosplist =user.getHospitalList();
+
 		
 		for (Iterator iterator = cbclist.iterator(); iterator.hasNext();) {
 			CBCModel cbcModel = (CBCModel) iterator.next();

@@ -43,8 +43,8 @@ public class UserController {
 		userService.saveUser(user);
 		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("user", user);
-		modelAndView.setViewName("user");
+		//modelAndView.addObject("user", user);
+		modelAndView.setViewName("sucess");
 		return modelAndView;
 		
 	}

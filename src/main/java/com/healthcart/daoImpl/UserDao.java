@@ -35,7 +35,8 @@ public class UserDao implements UserDaoInterface {
 	}
 
 	Session session = null;
-
+	Transaction txn = null;
+	
 	@Override
 	public Integer saveUser(UserDto user) {
 		Date today = new Date();
@@ -53,11 +54,10 @@ public class UserDao implements UserDaoInterface {
 		usermodel.setUserName(user.getUserName());
 		usermodel.setUserPwd(user.getUserPwd());
 		session = sessionFactory.openSession();
-		Transaction txn = session.beginTransaction();
-		
+		txn = session.beginTransaction();
 		int save = (int) session.save(usermodel);
 		txn.commit();
-
+		session.close();
 		return save;
 
 	}
