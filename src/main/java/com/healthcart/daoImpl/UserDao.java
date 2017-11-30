@@ -37,7 +37,7 @@ public class UserDao implements UserDaoInterface {
 	Session session = null;
 	Transaction txn = null;
 	
-	@Override
+	/*@Override
 	public Integer saveUser(UserDto user) {
 		Date today = new Date();
 
@@ -47,7 +47,7 @@ public class UserDao implements UserDaoInterface {
 		usermodel.setEmail(user.getEmail());
 		usermodel.setMobileNumber(user.getMobileNumber());
 		usermodel.setEnrollDate(today);
-		usermodel.setCbcList(user.getCbcList());
+		usermodel.setCbcList(user.getCbcList().);
 		usermodel.setSugarList(user.getSugarList());
 		usermodel.setThyroidList(user.getThyroidList());
 		usermodel.setHospitalList(user.getHospitalList());
@@ -60,6 +60,16 @@ public class UserDao implements UserDaoInterface {
 		session.close();
 		return save;
 
+	}
+*/
+	@Override
+	public Integer saveUser(UserModel user) {
+		session = sessionFactory.openSession();
+		txn = session.beginTransaction();
+		int save = (int) session.save(user);
+		txn.commit();
+		session.close();
+		return save;
 	}
 
 }
