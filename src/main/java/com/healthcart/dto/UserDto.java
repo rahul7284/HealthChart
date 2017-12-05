@@ -2,6 +2,7 @@ package com.healthcart.dto;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import com.healthcart.cmodel.CBCModel;
 import com.healthcart.cmodel.HospitalModel;
@@ -26,7 +27,10 @@ public class UserDto {
 	private List<ThyroidModel> thyroidList;
 	private List<HospitalModel> hospitalList;
 	
-	
+	/*private Set<CBCModel> cbcList;
+	private Set<SugarModel> sugarList;
+	private Set<ThyroidModel> thyroidList;
+	private Set<HospitalModel> hospitalList;*/
 	public Integer getId() {
 		return id;
 	}
@@ -75,30 +79,6 @@ public class UserDto {
 	public void setEnrollDate(Date enrollDate) {
 		this.enrollDate = enrollDate;
 	}
-	/*public List<CbcTest> getCbcList() {
-		return cbcList;
-	}
-	public void setCbcList(List<CbcTest> cbcList) {
-		this.cbcList = cbcList;
-	}
-	public List<SugarTest> getSugarList() {
-		return sugarList;
-	}
-	public void setSugarList(List<SugarTest> sugarList) {
-		this.sugarList = sugarList;
-	}
-	public List<ThyroidTest> getThyroidList() {
-		return thyroidList;
-	}
-	public void setThyroidList(List<ThyroidTest> thyroidList) {
-		this.thyroidList = thyroidList;
-	}
-	public List<Hospital> getHospitalList() {
-		return hospitalList;
-	}
-	public void setHospitalList(List<Hospital> hospitalList) {
-		this.hospitalList = hospitalList;
-	}*/
 	public List<CBCModel> getCbcList() {
 		return cbcList;
 	}
@@ -123,5 +103,9 @@ public class UserDto {
 	public void setHospitalList(List<HospitalModel> hospitalList) {
 		this.hospitalList = hospitalList;
 	}
+	
+	
+
+	
 
 }

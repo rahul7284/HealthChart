@@ -72,5 +72,15 @@ public class UserDao implements UserDaoInterface {
 		session.close();
 		return save;
 	}
+*/
+	@Override
+	public Integer saveUser(UserModel user) {
+		session = sessionFactory.openSession();
+		txn = session.beginTransaction();
+		int save = (int) session.save(user);
+		txn.commit();
+		session.close();
+		return save;
+	}
 
 }
