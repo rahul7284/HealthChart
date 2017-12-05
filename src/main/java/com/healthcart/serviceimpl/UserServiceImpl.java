@@ -2,8 +2,10 @@ package com.healthcart.serviceimpl;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,16 +34,24 @@ public class UserServiceImpl implements UserService{
 		Date today = new Date();
 		user.setEnrollDate(today);
 		BeanUtils.copyProperties(user, usermodel);
-		List<CBCModel> cbclist = new ArrayList<CBCModel>();
+		/*List<CBCModel> cbclist = new ArrayList<CBCModel>();
 		List<SugarModel> sugarlist = new ArrayList<SugarModel>();
 		List<ThyroidModel> thyroidlist = new ArrayList<ThyroidModel>();
-		List<HospitalModel> hosplist = new ArrayList<HospitalModel>();
-		cbclist =user.getCbcList();
+		List<HospitalModel> hosplist = new ArrayList<HospitalModel>();*/
+		
+		Set<CBCModel> cbclist = new HashSet<CBCModel>(user.getCbcList());
+		Set<SugarModel> sugarlist = new HashSet<SugarModel>(user.getSugarList());
+		Set<ThyroidModel> thyroidlist = new HashSet<ThyroidModel>(user.getThyroidList());
+		Set<HospitalModel> hosplist = new HashSet<HospitalModel>(user.getHospitalList());
+		
+		usermodel.setCbcList(cbclist);
+		usermodel.setSugarList(sugarlist);
+		usermodel.setThyroidList(thyroidlist);
+		usermodel.setHospitalList(hosplist);
+		/*cbclist =user.getCbcList();
 		sugarlist =user.getSugarList();
 		thyroidlist =user.getThyroidList();
-		hosplist =user.getHospitalList();
-
-		
+		hosplist =user.getHospitalList();*/
 		for (Iterator iterator = cbclist.iterator(); iterator.hasNext();) {
 			CBCModel cbcModel = (CBCModel) iterator.next();
 			cbcModel.setUser(usermodel);
@@ -56,7 +66,7 @@ public class UserServiceImpl implements UserService{
 			HospitalModel hospModel = (HospitalModel) iterator.next();
 			hospModel.setUser(usermodel);
 		}
-		userDao.saveUser(user);
+		userDao.saveUser(usermodel);
 		return 0;
 	}
 
