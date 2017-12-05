@@ -2,6 +2,7 @@ package com.healthcart.cmodel;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -51,19 +52,19 @@ public class UserModel {
 	@OneToMany(mappedBy = "user",orphanRemoval=true,cascade=CascadeType.ALL)
 	@Fetch(value = org.hibernate.annotations.FetchMode.SUBSELECT)
 	
-	private List<CBCModel> cbcList;
+	private Set<CBCModel> cbcList;
 	@OneToMany(mappedBy = "user",orphanRemoval=true,cascade=CascadeType.ALL)
 	@Fetch(value = org.hibernate.annotations.FetchMode.SUBSELECT)
 	
-	private List<SugarModel> sugarList;
+	private Set<SugarModel> sugarList;
 	@OneToMany(mappedBy = "user",orphanRemoval=true,cascade=CascadeType.ALL)
 	@Fetch(value = org.hibernate.annotations.FetchMode.SUBSELECT)
 	
-	private List<ThyroidModel> thyroidList;
+	private Set<ThyroidModel> thyroidList;
 	@OneToMany(mappedBy = "user",orphanRemoval=true,cascade=CascadeType.ALL)
 	@Fetch(value = org.hibernate.annotations.FetchMode.SUBSELECT)
 	
-	private List<HospitalModel> hospitalList;
+	private Set<HospitalModel> hospitalList;
 	public Integer getId() {
 		return id;
 	}
@@ -112,7 +113,7 @@ public class UserModel {
 	public void setEnrollDate(Date enrollDate) {
 		this.enrollDate = enrollDate;
 	}
-	public List<CBCModel> getCbcList() {
+	/*public List<CBCModel> getCbcList() {
 		return cbcList;
 	}
 	public void setCbcList(List<CBCModel> cbcList) {
@@ -135,6 +136,32 @@ public class UserModel {
 	}
 	public void setHospitalList(List<HospitalModel> hospitalList) {
 		this.hospitalList = hospitalList;
+	}*/
+	public Set<CBCModel> getCbcList() {
+		return cbcList;
 	}
+	public void setCbcList(Set<CBCModel> cbcList) {
+		this.cbcList = cbcList;
+	}
+	public Set<SugarModel> getSugarList() {
+		return sugarList;
+	}
+	public void setSugarList(Set<SugarModel> sugarList) {
+		this.sugarList = sugarList;
+	}
+	public Set<ThyroidModel> getThyroidList() {
+		return thyroidList;
+	}
+	public void setThyroidList(Set<ThyroidModel> thyroidList) {
+		this.thyroidList = thyroidList;
+	}
+	public Set<HospitalModel> getHospitalList() {
+		return hospitalList;
+	}
+	public void setHospitalList(Set<HospitalModel> hospitalList) {
+		this.hospitalList = hospitalList;
+	}
+	
+	
 
 }
