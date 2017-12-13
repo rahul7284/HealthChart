@@ -9,7 +9,7 @@
 
 <form:form action="userdetails.htm" modelAttribute="user" id="user">
 
-		${user.cbcList}
+		
 	<center>
 		<h1>HealthMeasures</h1>
 		<h1>User Details</h1>

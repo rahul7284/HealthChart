@@ -20,6 +20,7 @@ import com.healthcart.dao.UserDaoInterface;
 import com.healthcart.dto.CbcTest;
 import com.healthcart.dto.UserDto;
 import com.healthcart.service.UserService;
+import com.healthcart.utils.PasswordUtils;
 
 @Service
 public class UserServiceImpl implements UserService {

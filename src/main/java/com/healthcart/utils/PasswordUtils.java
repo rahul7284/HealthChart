@@ -1,4 +1,4 @@
-package com.healthcart.serviceimpl;
+package com.healthcart.utils;
 
 import java.util.Random;
 
@@ -8,7 +8,7 @@ public class PasswordUtils {
 	public static String generateSaltPasword() {
 
 		Random rnd = new Random();
-		int len = rnd.nextInt(4 - 4 + 1) + 4;
+		int len = rnd.nextInt(10) ;
 		char[] pswd = new char[len];
 
 		for (int i = 0; i < len; i++) {
