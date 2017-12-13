@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.healthcart.cmodel.CBCModel;
 import com.healthcart.dto.BloodSugarDto;
 import com.healthcart.dto.UserDto;
+import com.healthcart.service.LoginService;
 import com.healthcart.service.UserService;
 
 
@@ -21,6 +22,14 @@ import com.healthcart.service.UserService;
 public class LoginController {
 	
 	private UserService userService;
+
+	private LoginService loginService;
+	@Autowired
+	public void setLoginService(LoginService loginService) {
+		this.loginService = loginService;
+	}
+
+
 	@Autowired
 	public void setUserService(UserService userService) {
 		this.userService = userService;
@@ -33,9 +42,12 @@ public class LoginController {
 	public ModelAndView loginUser(@ModelAttribute (value="user") UserDto user)
 	{
 		log.debug("login debug enabled");
+		UserDto userDto = new UserDto();
+		userDto=loginService.vaildateUser(user);
+		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("user", user);
-		modelAndView.setViewName("login");
+		modelAndView.addObject("user", userDto);
+		modelAndView.setViewName("sucess");
 		return modelAndView;
 	}
 	

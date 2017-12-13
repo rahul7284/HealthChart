@@ -9,6 +9,6 @@
 </head>
 <body>
 Index
-	<c:redirect url="/login.htm" />
+	<c:redirect url="/landing.htm" />
 </body>
 </html>
