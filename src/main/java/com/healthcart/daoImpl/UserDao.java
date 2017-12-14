@@ -63,13 +63,7 @@ public class UserDao implements UserDaoInterface {
 	}
 */
 	
-<<<<<<< HEAD
-	
-
-=======
->>>>>>> branch 'master' of https://github.com/rahul7284/HealthChart
-
-	@Override
+		@Override
 	public Integer saveUser(UserModel user) {
 		session = sessionFactory.openSession();
 		txn = session.beginTransaction();
