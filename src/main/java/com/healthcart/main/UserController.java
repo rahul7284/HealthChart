@@ -44,7 +44,7 @@ public class UserController {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		//modelAndView.addObject("user", user);
-		modelAndView.setViewName("sucess");
+		modelAndView.setViewName("login");
 		return modelAndView;
 		
 	}
