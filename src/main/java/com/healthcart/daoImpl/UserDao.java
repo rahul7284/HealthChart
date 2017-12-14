@@ -62,8 +62,7 @@ public class UserDao implements UserDaoInterface {
 
 	}
 */
-	
-		@Override
+
 	public Integer saveUser(UserModel user) {
 		session = sessionFactory.openSession();
 		txn = session.beginTransaction();

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-DONE
+Welcome ${user.firstName}
 </body>
 </html>
