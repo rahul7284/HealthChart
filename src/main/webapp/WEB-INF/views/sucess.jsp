@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<a href="logout.htm">Logout</a>
 Welcome ${user.firstName}
 </body>
 </html>

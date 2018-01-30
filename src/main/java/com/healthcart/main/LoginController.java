@@ -60,7 +60,7 @@ public class LoginController {
 		log.debug("login debug enabled");
 		UserDto userDto = new UserDto();
 		ModelAndView modelAndView = new ModelAndView();
-		session.setMaxInactiveInterval(5);
+		
 		modelAndView.addObject("session", session);
 		 modelAndView.addObject("user", userDto);
 		modelAndView.setViewName("login");
