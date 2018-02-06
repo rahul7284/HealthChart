@@ -7,14 +7,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#submit").click(function(){
+	 var username = $('#userName').val();  
+	 var userpwd = $('#userPwd').val();
+	
+	 $.ajax({  
+	     type : "GET",   
+	     url : "hello.htm",
+	      contentType: "application/json",  // this
+        // and this
+	     data : "username=" + username + "&userpwd=" + userpwd,  
+	     success : function(response) {  
+	      alert(response);   
+	     },  
+	     error : function(e) {  
+	      console.log("Error :"+e);
+	     }  
+	    });  
+	});
+});
+
+</script>
 </head>
 <body>
 
-
-
-
-
-	<form:form action="login.htm" modelAttribute="user" id="user">
+	<%-- <form:form action="login.htm" modelAttribute="user" id="user">
 
 
 		<center>
@@ -31,11 +52,30 @@
 			<br> <br>
 			<div style="color: red">${error}</div>
 
-			<input type="submit">
+			<input type="submit" id="submit">
 
 
 		</center>
 
-	</form:form>
+	</form:form> --%>
+	
+	<center>
+
+			<h1>User Login Page</h1>
+
+
+			<input  name="userName" id="userName"></input>
+			<br> <br>
+
+			<input name="userPwd" id="userPwd"></input>
+			<br> <br>
+			<div style="color: red">${error}</div>
+
+			<input type="submit" id="submit">
+
+
+		</center>
+	
+	
 </body>
 </html>

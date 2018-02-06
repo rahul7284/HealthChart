@@ -43,8 +43,7 @@ public class LoginDaoImpl implements LoginDaoInterface {
 	public UserModel validateUser(UserModel user) {
 	UserModel userModel = new UserModel();
 	session = sessionFactory.openSession();
-	userModel=(UserModel) session.createCriteria(UserModel.class).add(Restrictions.eq("userName", user.getUserName()))
-	.add(Restrictions.eq("userPwd", user.getUserPwd())).uniqueResult();
+	userModel=(UserModel) session.createCriteria(UserModel.class).add(Restrictions.eq("userName", user.getUserName())).add(Restrictions.eq("userPwd", user.getUserPwd())).uniqueResult();
 	if(userModel!=null)	
 	{
 		return userModel;
