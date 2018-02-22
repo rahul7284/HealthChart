@@ -5,7 +5,7 @@ import java.util.Random;
 public class Test {
 	public static void main(String[] args) {
 
-		/*int firstLargest = Integer.MIN_VALUE;
+		int firstLargest = Integer.MIN_VALUE;
 		int secLargest = Integer.MIN_VALUE;
 
 		int thirdLargest = Integer.MIN_VALUE;
@@ -38,7 +38,7 @@ public class Test {
 				
 		}
 		System.out.println(thirdLargest);
-		*/
+		
 		
 		
 		

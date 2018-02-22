@@ -14,7 +14,7 @@ public class UserDto {
 	private String firstName;
 	private String lastName;
 	private String email ;
-	private Integer mobileNumber;
+	private Long mobileNumber;
 	private String userName;
 	private String userPwd;
 	private Date enrollDate;
@@ -55,10 +55,11 @@ public class UserDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getMobileNumber() {
+	
+	public Long getMobileNumber() {
 		return mobileNumber;
 	}
-	public void setMobileNumber(Integer mobileNumber) {
+	public void setMobileNumber(Long mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 	public String getUserName() {

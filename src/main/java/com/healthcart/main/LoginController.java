@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.healthcart.cmodel.CBCModel;
 import com.healthcart.dto.BloodSugarDto;
+import com.healthcart.dto.User;
 import com.healthcart.dto.UserDto;
 import com.healthcart.service.LoginService;
 import com.healthcart.service.UserService;
@@ -59,15 +62,24 @@ public class LoginController {
 		}
 		return modelAndView;
 	}
-	@RequestMapping(value = "/loginjson.htm", method=RequestMethod.GET,produces = "application/json")
+	@RequestMapping(value = "/loginjson", method=RequestMethod.GET,headers="Accept=application/json",produces = "application/json")
+	@ResponseStatus(HttpStatus.OK)
 	public @ResponseBody UserDto loginUserJson(@RequestParam String username , @RequestParam String userpwd) {
 		log.debug("login debug enabled");
 		UserDto userDto = new UserDto();
+		User user = new User();
 		System.out.println(username+ " "+userpwd);
 		userDto.setUserName(username);
 		userDto.setUserPwd(userpwd);
 		userDto = loginService.vaildateUser(userDto);
-
+		user.setEmail(userDto.getEmail());
+		/*user.setEnrollDate(userDto.getEnrollDate());*/
+		user.setFirstName(userDto.getFirstName());
+		user.setLastName(userDto.getLastName());
+		user.setId(userDto.getId());
+		user.setMobileNumber(userDto.getMobileNumber());
+		user.setUserName(userDto.getUserName());
+		user.setUserPwd(userDto.getUserPwd());
 		ModelAndView modelAndView = new ModelAndView();
 		if (userDto != null) {
 			modelAndView.addObject("user", userDto);
@@ -80,7 +92,7 @@ public class LoginController {
 	}
 
 	
-	@RequestMapping(value = "/hello.htm", method=RequestMethod.GET,produces = "application/json")
+	@RequestMapping(value = "/hello.htm", method=RequestMethod.GET)
 	public @ResponseBody String helloJson(@RequestParam String username , @RequestParam String userpwd) {
 		log.debug("login debug enabled");
 		System.out.println("HIIIIIIIIIIII");

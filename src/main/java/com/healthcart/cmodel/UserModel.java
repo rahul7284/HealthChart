@@ -37,9 +37,9 @@ public class UserModel {
 	@Column(name="email")
 	
 	private String email ;
-	@Column(name="mobileNumber")
+	@Column(name="mobileNumber" , unique = true)
 	
-	private Integer mobileNumber;
+	private Long mobileNumber;
 	@Column(name="userName")
 	
 	private String userName;
@@ -89,10 +89,11 @@ public class UserModel {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getMobileNumber() {
+	
+	public Long getMobileNumber() {
 		return mobileNumber;
 	}
-	public void setMobileNumber(Integer mobileNumber) {
+	public void setMobileNumber(Long mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 	public String getUserName() {
