@@ -10,6 +10,7 @@ com\healthcart\main\TestThread.class
 com\healthcart\daoImpl\LoginDaoImpl.class
 com\healthcart\service\LoginService.class
 com\healthcart\main\LoginController.class
+com\healthcart\dto\User.class
 com\healthcart\cmodel\ThyroidModel.class
 com\healthcart\dto\BloodCBCDto.class
 com\healthcart\model\BloodPlateletsModel.class

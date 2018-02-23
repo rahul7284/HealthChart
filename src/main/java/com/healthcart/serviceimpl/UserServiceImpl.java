@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 
 	
 	@Override
-	public int saveUser(UserDto user) {
+	public UserDto saveUser(UserDto user) {
 		UserModel usermodel = new UserModel();
 		StringBuffer newPwd = new StringBuffer(PasswordUtils.generateSaltPasword());
 		newPwd.append(user.getUserPwd());
@@ -81,8 +81,9 @@ public class UserServiceImpl implements UserService {
 			HospitalModel hospModel = (HospitalModel) iterator.next();
 			hospModel.setUser(usermodel);
 		}
-		userDao.saveUser(usermodel);
-		return 0;
+		usermodel=userDao.saveUser(usermodel);
+		BeanUtils.copyProperties(usermodel, user);
+		return user;
 	}
 
 }

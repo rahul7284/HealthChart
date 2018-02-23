@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,9 @@ import com.healthcart.service.UserService;
 public class UserController {
 	
 	private UserService userService;
+	@Autowired
+	private JavaMailSender mailSender;
+	
 	@Autowired
 	public void setUserService(UserService userService) {
 		this.userService = userService;
@@ -40,8 +45,28 @@ public class UserController {
 	@RequestMapping(value ="/userdetails.htm" , method=RequestMethod.POST)
 	public ModelAndView saveUser(@ModelAttribute (value="user") UserDto user)
 	{
-		userService.saveUser(user);
+		UserDto userreturn = new UserDto();
 		
+		userreturn=userService.saveUser(user);
+		String username = userreturn.getUserName();
+		String userpwd = userreturn.getUserPwd();
+		String recipientAddress = "rahulpyasi42@gmail.com";
+        String subject = "Test Mail";
+        String message = "Your user name is"+username+ " & password is "+userpwd;
+         
+        // prints debug info
+        System.out.println("To: " + recipientAddress);
+        System.out.println("Subject: " + subject);
+        System.out.println("Message: " + message);
+         
+        // creates a simple e-mail object
+        SimpleMailMessage email = new SimpleMailMessage();
+        email.setTo(recipientAddress);
+        email.setSubject(subject);
+        email.setText(message);
+         
+        // sends the e-mail
+        mailSender.send(email);
 		ModelAndView modelAndView = new ModelAndView();
 		//modelAndView.addObject("user", user);
 		modelAndView.setViewName("login");

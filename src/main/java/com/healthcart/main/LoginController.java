@@ -9,6 +9,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +35,8 @@ public class LoginController {
 	private UserService userService;
 
 	private LoginService loginService;
-
+	
+	
 	@Autowired
 	public void setLoginService(LoginService loginService) {
 		this.loginService = loginService;
@@ -54,6 +57,8 @@ public class LoginController {
 
 		ModelAndView modelAndView = new ModelAndView();
 		if (userDto != null) {
+			  
+		         
 			modelAndView.addObject("user", userDto);
 			modelAndView.setViewName("sucess");
 		} else {
@@ -92,13 +97,6 @@ public class LoginController {
 	}
 
 	
-	@RequestMapping(value = "/hello.htm", method=RequestMethod.GET)
-	public @ResponseBody String helloJson(@RequestParam String username , @RequestParam String userpwd) {
-		log.debug("login debug enabled");
-		System.out.println("HIIIIIIIIIIII");
-		return "hi";
-	}
-
 	
 	
 	

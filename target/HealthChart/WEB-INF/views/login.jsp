@@ -17,12 +17,14 @@ $(document).ready(function(){
 	
 	 $.ajax({  
 	     type : "GET",   
-	     url : "loginjson.htm",
-	      contentType: "application/json",  // this
-        // and this
+	     url : "loginjson",
+	    headers:{
+        "Accept":"application/json"
+	    },
 	     data : "username=" + username + "&userpwd=" + userpwd,  
+	    
 	     success : function(response) {  
-	      alert(response);   
+	      console.log(JSON.stringify(response));   
 	     },  
 	     error : function(e) {  
 	      console.log("Error :"+e);
@@ -35,7 +37,7 @@ $(document).ready(function(){
 </head>
 <body>
 
-	<%-- <form:form action="login.htm" modelAttribute="user" id="user">
+	<%-- <form:form action="loginjson.htm" modelAttribute="user" id="user">
 
 
 		<center>

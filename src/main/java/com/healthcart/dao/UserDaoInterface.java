@@ -5,6 +5,6 @@ import com.healthcart.dto.UserDto;
 
 public interface UserDaoInterface {
 
-	Integer saveUser(UserModel user);
+	UserModel saveUser(UserModel user);
 
 }

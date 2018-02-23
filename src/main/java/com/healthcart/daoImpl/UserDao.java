@@ -8,6 +8,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -63,13 +64,15 @@ public class UserDao implements UserDaoInterface {
 	}
 */
 
-	public Integer saveUser(UserModel user) {
+	public UserModel saveUser(UserModel user) {
 		session = sessionFactory.openSession();
 		txn = session.beginTransaction();
-		int save = (int) session.save(user);
+		int saveid = (int) session.save(user);
+		
+		user=(UserModel) session.createCriteria(UserModel.class).add(Restrictions.eq("id", saveid)).uniqueResult();
 		txn.commit();
 		session.close();
-		return save;
+		return user;
 	}
 
 }

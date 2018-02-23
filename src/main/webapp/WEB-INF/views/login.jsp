@@ -24,7 +24,8 @@ $(document).ready(function(){
 	     data : "username=" + username + "&userpwd=" + userpwd,  
 	    
 	     success : function(response) {  
-	      console.log(JSON.stringify(response));   
+	     alert("success"); 
+	      window.document.location.href = "sucess.jsp";
 	     },  
 	     error : function(e) {  
 	      console.log("Error :"+e);
