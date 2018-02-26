@@ -112,5 +112,21 @@ public class LoginController {
 
 		return modelAndView;
 	}
-
+	
+	@RequestMapping(value = "/showPage",method=RequestMethod.GET,headers="Accept=application/json")
+	public ModelAndView showPage() {
+		log.debug("login debug enabled");
+		System.out.println("show page hit");
+		UserDto userDto = new UserDto();
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("user", userDto);
+		modelAndView.setViewName("sucess");
+		if (userDto != null) {
+			
+		} else {
+			modelAndView.addObject("error", "Invalid Login Credentials");
+			modelAndView.setViewName("login");
+		}
+		return modelAndView;
+	}
 }

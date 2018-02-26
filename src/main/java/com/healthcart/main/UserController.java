@@ -48,7 +48,7 @@ public class UserController {
 		UserDto userreturn = new UserDto();
 		
 		userreturn=userService.saveUser(user);
-		String username = userreturn.getUserName();
+		/*String username = userreturn.getUserName();
 		String userpwd = userreturn.getUserPwd();
 		String recipientAddress = "rahulpyasi42@gmail.com";
         String subject = "Test Mail";
@@ -66,7 +66,7 @@ public class UserController {
         email.setText(message);
          
         // sends the e-mail
-        mailSender.send(email);
+        mailSender.send(email);*/
 		ModelAndView modelAndView = new ModelAndView();
 		//modelAndView.addObject("user", user);
 		modelAndView.setViewName("login");

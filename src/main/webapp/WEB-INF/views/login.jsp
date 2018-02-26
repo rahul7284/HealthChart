@@ -22,10 +22,22 @@ $(document).ready(function(){
         "Accept":"application/json"
 	    },
 	     data : "username=" + username + "&userpwd=" + userpwd,  
-	    
-	     success : function(response) {  
-	     alert("success"); 
-	      window.document.location.href = "sucess.jsp";
+	     success : function(response) { 
+	    	
+	    	 $.ajax({  
+	    	     type : "GET",   
+	    	     url : "showPage",
+	    	    headers:{
+	            "Accept":"application/json"
+	    	    },
+	    	     data : response,  
+	    	     success : function(response) { 
+	    	    	 
+	    	     },  
+	    	     error : function(e) {  
+	    	      console.log("Error :"+e);
+	    	     }  
+	    	    });  
 	     },  
 	     error : function(e) {  
 	      console.log("Error :"+e);
@@ -33,6 +45,11 @@ $(document).ready(function(){
 	    });  
 	});
 });
+function display(data) {
+	var json = "<h4>Ajax Response</h4><pre>"
+			+ JSON.stringify(data) + "</pre>";
+	$('#subViewDiv').html(json);
+}
 
 </script>
 </head>
@@ -79,6 +96,9 @@ $(document).ready(function(){
 
 		</center>
 	
+	<div id="subViewDiv">
+	
+	</div>
 	
 </body>
 </html>
